@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenova Demo</title>
+    <Link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <form id="form">
+        <label for="input">Input: </label>
+        <input type="text" id="input" placeholder="3O,9I,0J">
+        <button id="btn" type="submit">load</button>
+        <div id="error" class="hidden">Error message</div>
+        <p id="answer"></p>
+    </form>
+
+    <div id="table-container">
+        <table>
+            <tbody id="grid"></tbody>
+        </table>
+    </div>
+
+    <script src="./src/data.js"></script>
+    <script src="./src/libs/getGrid.js"></script>
+    <script src="./src/libs/getInputArr.js"></script>
+    <script src="./src/libs/isOccupied.js"></script>
+    <script src="./src/libs/loadCargos.js"></script>
+    <script src="./src/libs/renderGrid.js"></script>
+    <script src="./src/libs/getLength.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

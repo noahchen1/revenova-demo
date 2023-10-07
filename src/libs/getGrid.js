@@ -1,0 +1,1 @@
+const getGrid = (width, height) => Array.from({ length: height }, v => new Array(width).fill(0));
