@@ -17,7 +17,7 @@ form.onsubmit = (e) => {
   loadCargos(input).then((grid) => {
     renderGrid(grid);
 
-    ans.innerText = `the highest 0-indexed y-axis that has an occupied square is ${getLength(grid)}`;
+    ans.innerText = `the highest 0-indexed y-axis that has an occupied square is ${getIndex(grid)}`;
   });
 };
 

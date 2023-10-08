@@ -1,26 +1,35 @@
 const loadCargos = async (input) => {
-  const error = document.getElementById('error');
+  const error = document.getElementById("error");
   const CARGO_DATA = DATA.CARGO_DATA;
   const inputArr = getInputArr(input);
 
   const placeCargo = async (input) => {
-    let yPos = 0;
     const xPos = parseInt(input[0]);
+    let yPos = 0;
 
-    if (xPos < 0 || isNaN(xPos) || input.length !== 2) {
+    if (!isValidXPos(xPos, input)) {
       error.innerText = `${input} is not a valid input, please try again!`;
-      error.classList.remove('hidden');
-      
+      error.classList.remove("hidden");
+
       return;
     }
+
     const type = input[1].toUpperCase();
+
+    if (!isValidCargo(type)) {
+      error.innerText = `${input} is not a valid input, please try again!`;
+      error.classList.remove("hidden");
+
+      return;
+    }
+
     const cargo = CARGO_DATA[type];
     const cargoHeight = cargo.length;
     const cargoWidth = cargo[0].length;
 
-    if (xPos + cargoWidth > grid[0].length) {
+    if (isCargoTooWide(xPos, cargoWidth, grid)) {
       error.innerText = `Cargo ${input} is too big and cannot be loaded!`;
-      error.classList.remove('hidden');
+      error.classList.remove("hidden");
 
       return;
     }
@@ -28,9 +37,9 @@ const loadCargos = async (input) => {
     while (isOccupied(xPos, yPos, cargoWidth, cargoHeight, grid, cargo)) {
       yPos++;
 
-      if (yPos + cargoHeight > grid.length) {
+      if (isCargoTooTall(yPos, cargoHeight, grid)) {
         error.innerText = `Cargo ${input} is too big and cannot be loaded!`;
-        error.classList.remove('hidden');
+        error.classList.remove("hidden");
 
         return;
       }

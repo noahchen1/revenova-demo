@@ -1,6 +1,5 @@
-function renderGrid(grid) {
+const renderGrid = (grid) => {
   const container = document.getElementById("table-container");
-  
   const gridElement = document.getElementById("grid");
   gridElement.innerHTML = "";
 
@@ -21,4 +20,4 @@ function renderGrid(grid) {
   }
 
   container.scrollTop = container.scrollHeight;
-}
+};
